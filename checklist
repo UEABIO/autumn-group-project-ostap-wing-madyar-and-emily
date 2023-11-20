@@ -12,7 +12,10 @@ Keep old checks, do not delete. Add new checks when added.
 
 3. Assign plots for each person
 
-4. Add aesthetics
+4. Add aesthetics [Emily]
+-> font
+-> colour
+-> size
 
 5. Add final .Rmd file to knit all figures together
 
