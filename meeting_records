@@ -7,5 +7,5 @@ initial set up by team lead Ostap, all contributed to data wrangling (cleaning_d
 Estblished Git link with R, installed packages, import data, reviewed README and assignment brief, set up script folder and individual scripts
 
 *Meeting after workshop* (~1 hour): all present
-reviewed variables: date (ymd), arrange data
-Meeting Records (this file) set up by Emily 
+set up meeting records (this file), start working on README
+reviewed variables, changed date format,
