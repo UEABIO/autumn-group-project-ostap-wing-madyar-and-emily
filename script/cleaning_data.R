@@ -12,3 +12,15 @@ library(colorBlindness) #check plot accessibility
 
 # IMPORT DATA ----
 covid_data_raw <- read_csv("data/owid-covid-data.csv")
+
+
+# working with dates changing then to day/month/year format----
+
+covid_data_raw %>% 
+  mutate(date = as.numeric(str_remove_all(date, "/"))) %>% 
+  glimpse()
+
+covid_data_raw <- covid_data_raw %>%
+  mutate(date_dmy = lubridate::dmy(date))
+
+
