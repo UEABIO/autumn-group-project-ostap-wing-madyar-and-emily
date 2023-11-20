@@ -1,29 +1,29 @@
 ---
-title: "project readme"
+title: "BIO 5023Y Autumn Assignment"
 output: html_document
-date: "2023-11-20"
 ---
+# Autumn Assignment BIO 5023Y 
+Summative group assignment from Wing, Emily, Ostap and Madiyar
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-## R Markdown
+## Project description
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+A group assignment to produce a outbreak situational report of COVID-19 that addresses any topics or trends that are deemed relevant to inform an audience of public health and medical responders. Data was presented via a csv-formatted COVID-19 linelist.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+The data is a fake version of a covid linelist a data format for collecting case numbers and information for epidemiology. This data was originally provided by Batra, Neale et al. (2021), The Epidemiologist R Handbook.
 
-```{r cars}
-summary(cars)
-```
+Members are responsible for:
 
-## Including Plots
+Checking the dataset for errors or mistakes
 
-You can also embed plots, for example:
+Check that all columns are identified with the correct variable type
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Conduct exploratory data analysis to identify topics or trends of importance
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Produce one summary figure per person - each figure should be appropriate for the intended audience and may contain annotations or labels to aid explanation. Any requisite summary text to provide context or aid understanding should be included in the final report
+
+Combine all figures with explanatory text into a short (2-page maximum) report compiled with Rmarkdown to be presented at a weekly situation update meeting attended by public health officials and medical responders
+
+ 
+
+
