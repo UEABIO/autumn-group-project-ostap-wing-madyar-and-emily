@@ -1,0 +1,21 @@
+Checklist of things to do 
+if you want to take the lead on something, write [Your Name]
+if something is completed, write [Done]
+Keep old checks, do not delete. Add new checks when added.
+
+
+0. Make a checklist document [Madiyar][Done]
+
+1. Sort the date data chronologically
+
+2. Make sure all variables are correct vector
+
+3. Assign plots for each person
+
+4. Add aesthetics
+
+5. Add final .Rmd file to knit all figures together
+
+6. Discuss data
+
+7. Check references
