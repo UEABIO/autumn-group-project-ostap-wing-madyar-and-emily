@@ -8,5 +8,11 @@
 library(colorBlindness) #check plot accessibility
 #__________________________----
 # Import tided data and load r objects and functions 
-source("scripts/cleaning_data.R")
+source("script/cleaning_data.R")
 #__________________________----
+# DPLYR VERBS ----
+# this example is human readable without intermediate objects
+gender_vs_covid_death <- covid_data %>% 
+  select(pid, case_gender, died_covid) %>% 
+  filter(died_covid == "Yes") 
+  
