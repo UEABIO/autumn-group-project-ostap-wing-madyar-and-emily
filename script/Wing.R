@@ -10,5 +10,3 @@ library(colorBlindness) #check plot accessibility
 # Import tided data and load r objects and functions 
 source("scripts/cleaning_data.R")
 #__________________________----
-# Filter data to find only people who died from covid 
-filter(.data = covid_data_raw, died_covid == "Yes")
