@@ -23,3 +23,9 @@ covid_data <- janitor::clean_names(covid_data_raw)
 
 #Checking variable names
 glimpse (covid_data)
+
+
+# Checking for duplications rows in the data
+covid_data %>% 
+  duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
+  sum() # sums all the TRUE statements
