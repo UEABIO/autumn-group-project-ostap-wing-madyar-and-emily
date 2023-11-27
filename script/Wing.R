@@ -16,11 +16,11 @@ covid_data%>%
   distinct(case_gender, died_covid)
            
 covid_data%>%
-  distinct(case_gender) # results in
+  distinct(case_gender) # 4 distinct outputs Male, Female, NA, Unknown
 
 covid_data%>%
-  distinct(died_covid) # results 
-           
+  distinct(died_covid) # 4 distinct outputs No, NA, Yes, Under Review 
+
 # Filtered for only people who died from covid
 gender_vs_covid_death <- covid_data %>% 
   select(pid, case_gender, died_covid) %>% 
