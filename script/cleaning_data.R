@@ -23,8 +23,3 @@ covid_data <- janitor::clean_names(covid_data_raw)
 
 #Checking variable names
 glimpse (covid_data)
-
-
-# Filter the data variable for individuals that died of covid
-filtered_covid_dead <- filter(.data = covid_data, died_covid == "Yes") %>% 
-  select (died_covid)
