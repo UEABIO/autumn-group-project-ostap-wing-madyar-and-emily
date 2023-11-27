@@ -3,17 +3,17 @@
 ### Exploring confirmed cases vs death from covid
 
 #__________________----
-# SET UP: Loading packages ----
 
-library(tidyverse) # tidy data packages
-library(janitor) # cleans variable names
-library(patchwork) # To make final figure
+# Setting up personal loading packages ----
 library(colorBlindness) #check plot accessibility
 
 #__________________-----
 
-# Importing the data ----
-covid_data_raw <- read_csv("data/covid_example_data.csv")
-#__________________------
+# Loading objects and functions from main cleaning script ----
+# import tidied penguins data
+
+source("script/cleaning_data.R")
+
+#__________________________----
 
 
