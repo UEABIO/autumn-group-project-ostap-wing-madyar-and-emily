@@ -11,8 +11,27 @@ library(colorBlindness) #check plot accessibility
 source("script/cleaning_data.R")
 #__________________________----
 # DPLYR VERBS ----
-# this example is human readable without intermediate objects
+# Checking distinct ouputs
+covid_data%>%
+  distinct(case_gender, died_covid)
+           
+covid_data%>%
+  distinct(case_gender) # results in
+
+covid_data%>%
+  distinct(died_covid) # results 
+           
+# Filtered for only people who died from covid
 gender_vs_covid_death <- covid_data %>% 
   select(pid, case_gender, died_covid) %>% 
   filter(died_covid == "Yes") 
-  
+
+# check for duplicate rows in the data
+gender_vs_covid_death %>% 
+  duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
+  sum() # sums all the TRUE statements
+
+# checking for typos in answers
+gender_vs_covid_death %>%
+  distinct(case_gender, died_covid)
+
