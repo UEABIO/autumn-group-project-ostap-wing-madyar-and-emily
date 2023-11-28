@@ -8,8 +8,6 @@
 
 # SET UP----
 ## Packages----
-library(tidyverse) # core packages for tidying, exploring, wrangling and visualising data
-library(janitor) # clean variable names
 library(patchwork) # compile figure, might remove
 library(colorBlindness) #check plot accessibility
 
@@ -20,53 +18,42 @@ source("script/cleaning_data.R") #from separate script for cleaning
 
 # EXPLORATORY ANALYSIS----
 
-## Select relevant variables----
-symp_case <- select(.data = covid_data_raw, #data from cleaning script
-                          confirmed_case, sym_fever, sym_subjfever, sym_myalgia, sym_losstastesmell, 
-                          sym_sorethroat, sym_cough, sym_headache)
-#query source of sym_subjfever and sym_cough
+## Select variables----
+sym_case <- select(.data = covid_data_raw, #data from cleaning script
+                          confirmed_case, sym_headache, PID)
 
-## Overview of variables----
-glimpse(symp_case) 
-summary(symp_case)
-### All variables are categorical nominal variables.
+### Overview----
+glimpse(sym_case) 
+summary(sym_case) #Both variables are categorical nominal variables.
 
-### Original frequency for each variable saved as separate object----
-case_n <- symp_case %>% 
+## Overview of both variables 
+case_n <- sym_case %>% 
   group_by(confirmed_case) %>% 
-  summarise(n = n()) #output for confirmed cases
+  summarise(n = n()) %>% #frequency of distinct values
+  mutate(prob_obs = n/sum(n)) #relative frequency
+case_n #Action: Remove pending and NA
 
-fever_n <- symp_case %>%
-  group_by(sym_fever) %>%
-  summarise(n=n()) #output for fever symptoms
+headache_n <- sym_case %>%
+  group_by(sym_headache) %>%
+  summarise(n=n()) %>% #frequency of distinct values
+  mutate(prob_obs = n/sum(n)) #relative frequency
+headache_n  #Action: remove Unk/NA
 
-myalagia_n <- symp_case %>%
-  group_by(sym_myalgia) %>%
-  summarise(n=n()) #output for myalagia symptoms
+## Filter to only include "Yes" and "No" in both variables----
+sym_case_cleaned <- filter(.data = sym_case, confirmed_case %in% c("Yes", "No"), sym_headache %in% c("Yes", "No"))
 
-loststastesmell_n <- symp_case %>%
-  group_by(sym_losstastesmell) %>%
-  summarise(n=n()) #output for loss of taste and smell
+summary(sym_case_cleaned)
 
-sorethroat_n <- symp_case %>%
-  group_by(sym_sorethroat) %>%
-  summarise(n=n()) #output for sore throat
+# original count = 82101, with Unk, NA, Pending; after filter = 48864
 
-headache_n <- symp_case %>%
-  group_by(sym_sorethroat) %>%
-  summarise(n=n()) #output for headache
+sym_case_summary <- sym_case_cleaned %>% 
+  group_by(confirmed_case, sym_headache) %>% 
+  summarise(n=n(),
+            n_distinct=n_distinct(PID)) %>% 
+  ungroup() %>% # needed to remove group calculations
+  mutate(freq=n/sum(n)) # then calculates percentage of each group across WHOLE dataset
 
-### Frequency for cough and subjfever (N/A in README)
-cough_n <- symp_case %>%
-  group_by(sym_cough) %>%
-  summarise(n=n()) #output for cough
-
-subjfever_n <- symp_case %>%
-  group_by(sym_subjfever) %>%
-  summarise(n=n()) #output for subjfever
-  
-## each variable has 'yes', 'no', 'Na'; confirmed case also with 'pending', symptoms also with 'unk' for 'unknown'
-
+sym_case_summary
 #_____________________----
 # Create Plot ----
 
