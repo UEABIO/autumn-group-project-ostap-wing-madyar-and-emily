@@ -14,18 +14,27 @@ covid_data_raw <- read_csv("data/covid_example_data.csv")
 
 ## Exploring data to clean it -----
 
-# Checking for NA and varibale names
+# Checking if variable types and names are appropriate, also how many categories
+glimpse (covid_data_raw)
+
+
+# Checking for NA and where they are
 summary(covid_data_raw)
 
-# Cleaning all variable names
+# Previous function doesn't show location of NAs in some variables.
+# Get a sum of how many observations are missing in the data
+covid_data_raw %>% 
+  is.na() %>% 
+  sum()
 
+# Cleaning all variable names
 covid_data <- janitor::clean_names(covid_data_raw)
 
 #Checking variable names
 glimpse (covid_data)
 
-
-# Checking for duplications rows in the data
+# Checking for duplicate rows in the data
 covid_data %>% 
   duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
-  sum() # sums all the TRUE statements
+  sum() # sums all duplicates if present
+
