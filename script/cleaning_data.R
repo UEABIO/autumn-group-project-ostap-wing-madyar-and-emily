@@ -38,3 +38,11 @@ covid_data %>%
   duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
   sum() # sums all duplicates if present
 
+
+# Removing duplicates
+covid_data <- unique(covid_data) # Only includes unique individuals, no duplicates
+
+# Checking the result after removal of the duplication
+covid_data %>% 
+  duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
+  sum() # sums all duplicates if present
