@@ -21,11 +21,7 @@ glimpse (covid_data_raw)
 # Checking for NA and where they are
 summary(covid_data_raw)
 
-# Previous function doesn't show location of NAs in some variables.
-# Get a sum of how many observations are missing in the data
-covid_data_raw %>% 
-  is.na() %>% 
-  sum()
+# Previous function doesn't show location of NAs in some variables. Therefore need to be investigated seperately
 
 # Cleaning all variable names
 covid_data <- janitor::clean_names(covid_data_raw)
