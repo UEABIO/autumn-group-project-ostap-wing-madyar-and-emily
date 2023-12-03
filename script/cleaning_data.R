@@ -5,7 +5,7 @@
 
 # PACKAGES ----
 library(tidyverse) # tidy data packages
-library(janitor) # clean varibale names
+library(janitor) # clean variable names
 
 # IMPORT DATA ----
 covid_data_raw <- read_csv("data/covid_example_data.csv")
