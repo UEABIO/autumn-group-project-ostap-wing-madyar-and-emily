@@ -2,7 +2,7 @@
 ## Tsz-Ching Chiu (Emily)
 
 ### Data first published in Batra, Neale et al. (2021), The Epidemiologist R Handbook. ------
-### Figure topic: Explore how symptoms indicate COVID-19 diagnosis
+### Figure topic: evaluates if the symptom of headache indicates COVID-19 diagnosis
 
 #_____________________----
 
@@ -16,50 +16,30 @@ source("script/cleaning_data.R") #from separate script for cleaning
 
 #_____________________----
 
-# EXPLORATORY ANALYSIS----
+# DATA EXPLORATION----
 
 ## Select variables----
-sym_case <- select(.data = covid_data_raw, #data from cleaning script
-                          confirmed_case, sym_headache, PID)
+sym_case <- select(.data = covid_data, c(pid, confirmed_case, sym_headache))
 
-### Overview----
-glimpse(sym_case) 
-summary(sym_case) #Both variables are categorical nominal variables.
+## filter cases to include only positive or negative covid results
+sym_case <- filter(.data = sym_case, confirmed_case %in% c("Yes", "No"))
 
-## Overview of both variables 
-case_n <- sym_case %>% 
-  group_by(confirmed_case) %>% 
-  summarise(n = n()) %>% #frequency of distinct values
-  mutate(prob_obs = n/sum(n)) #relative frequency
-case_n #Action: Remove pending and NA
-
-headache_n <- sym_case %>%
-  group_by(sym_headache) %>%
-  summarise(n=n()) %>% #frequency of distinct values
-  mutate(prob_obs = n/sum(n)) #relative frequency
-headache_n  #Action: remove Unk/NA
-
-## Filter to only include "Yes" and "No" in both variables----
-sym_case_cleaned <- filter(.data = sym_case, confirmed_case %in% c("Yes", "No"), sym_headache %in% c("Yes", "No"))
-
-summary(sym_case_cleaned)
-
-# original count = 82101, with Unk, NA, Pending; after filter = 48864
-
-sym_case_summary <- sym_case_cleaned %>% 
+## group other observations as 'uncertain' (e.g. pending, unknown, N/A)
+sym_case_summary <- sym_case %>% 
   group_by(confirmed_case, sym_headache) %>% 
   summarise(n=n(),
-            n_distinct=n_distinct(PID)) %>% 
-  ungroup() %>% # needed to remove group calculations
-  mutate(freq=n/sum(n)) # then calculates percentage of each group across WHOLE dataset
+            n_distinct=n_distinct(pid)) %>% #number of unique cases
+  ungroup() %>% #remove group calculations
+  mutate(freq=n/sum(n)) # calculate percentage of each group across the dataset
 
 sym_case_summary
+
 #_____________________----
-# Create Plot ----
+# VISUALISATION: Create Bar Plot ----
 
 #_____________________----
 
-# Check Accessibility----
-## colorBlindness::cvdPlot()
+## Check Accessibility----
+colorBlindness::cvdPlot()
 
 # Export final plot as png file into separate figures folder (to be created)
