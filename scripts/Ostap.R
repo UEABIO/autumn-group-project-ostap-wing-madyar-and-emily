@@ -102,6 +102,15 @@ age_death_stats <- age_vs_covid_death %>%
 
 #_______________----
 
+# Gathering information for y-axis label----
+# This data will be put on y axis and inform of death rate
+covid_data %>%
+  select (died_covid) %>% #Selecting died from covid variable from data set
+  filter (died_covid %in% c("No","Yes")) %>% # Filtering by "Yes" and "No"
+  summarise(n = n()) # Summarizing the total value and will round for sake of clear message to audience
+
+#_______________----
+
 
 
 
