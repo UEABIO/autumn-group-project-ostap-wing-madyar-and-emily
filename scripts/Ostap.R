@@ -48,3 +48,9 @@ covid_data %>%
   group_by(died_covid)%>% # Grouping by deaths
   summarise(n=n()) # Outputting all distinct values and number per category
 
+# Checking for any other values than sensible positive numerical (age), in age variable
+covid_data %>%
+  select(case_age)%>% # Selecting the variable
+  arrange(case_age)%>% # Arranging from lowest to highest
+  distinct() # Outputting all distinct values
+
