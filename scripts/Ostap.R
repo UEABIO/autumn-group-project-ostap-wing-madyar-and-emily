@@ -59,4 +59,13 @@ covid_data %>%
 covid_data %>%
   dplyr::summarise(count_na_age = sum (is.na(case_age))) # NAs in age variable
 
+#_______________----
+
+# Narrowing down data frame for the interested variables ----
+# New variable for the data frame to contain only individuals that died from covid from different ages
+age_vs_covid_death <- covid_data %>%
+  select(pid, case_age, died_covid) %>% # selecting variables of interest
+  filter(died_covid == "Yes") # including only "Yes" values in the death from covid variable, removes any NA/ unknown
+
+
 
