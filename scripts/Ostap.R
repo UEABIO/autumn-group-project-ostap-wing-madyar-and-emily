@@ -29,5 +29,12 @@ covid_data %>%
   filter(died_covid == "Yes") %>% # Filter only deaths
   summarise (n=n()) # Summarizes total deaths
 
+# Checking death age range to inform of future graph plot
+covid_data %>% 
+  select (case_age, died_covid) %>% # Selects the 2 variables from data set
+  filter(died_covid == "Yes") %>% # Filter only deaths
+  summarise(youngest=min(case_age),
+            oldest=max(case_age)) # Retrieves min and max age groups
+
 
 
