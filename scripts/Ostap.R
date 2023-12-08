@@ -67,5 +67,13 @@ age_vs_covid_death <- covid_data %>%
   select(pid, case_age, died_covid) %>% # selecting variables of interest
   filter(died_covid == "Yes") # including only "Yes" values in the death from covid variable, removes any NA/ unknown
 
+# _____________----
 
+# Exploring data distribution of deaths across all ages to inform into age categories----
+ggplot(data = age_vs_covid_death, # Feeding data
+       aes(x = case_age)) + # Setting x axis
+  geom_bar() # Building bar plot with death frequency/count
+# Insight - with increasing age more deaths.
+# Can be understood that there are not a lot of old people above 80 roughly
+# Some data is missing due to NAs and other uninformative values that cant be used
 
