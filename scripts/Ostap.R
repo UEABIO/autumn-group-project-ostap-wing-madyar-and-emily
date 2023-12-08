@@ -77,3 +77,20 @@ ggplot(data = age_vs_covid_death, # Feeding data
 # Can be understood that there are not a lot of old people above 80 roughly
 # Some data is missing due to NAs and other uninformative values that cant be used
 
+#______________----
+
+# Making age categories for deaths and saving into new variable----
+# Following the last bar plot it makes sense to group the individuals above 80 year into one age category ->
+# -> for the purposes of clear message to audience
+age_vs_covid_death <- age_vs_covid_death %>% # Saving the data in original object
+  mutate(age_range = case_when(case_age <= 29 ~ "19-29", # Adding a variable to group deaths by age groups
+                               case_age >= 30 & case_age <= 39 ~ "30-39",
+                               case_age >= 40 & case_age <= 49 ~ "40-49",
+                               case_age >= 50 & case_age <= 59 ~ "50-59",
+                               case_age >= 60 & case_age <= 69 ~ "60-69",
+                               case_age >= 70 & case_age <= 79 ~ "70-79",
+                               case_age >= 80 ~ "80+")) %>%
+  group_by(age_range) # Group deaths into age categories
+
+# ______________----
+
