@@ -36,5 +36,9 @@ covid_data %>%
   summarise(youngest=min(case_age),
             oldest=max(case_age)) # Retrieves min and max age groups
 
-
+# Checking for any unexpected values such as NA and unknown in the age and death from covid variables
+# Looking if are any typos in the values
+covid_data %>%
+  group_by(case_age, died_covid) %>%  # Grouping data by the 2 variables
+  summarise(n = n()) # Outputting all the values per variable
 
