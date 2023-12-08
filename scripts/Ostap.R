@@ -94,3 +94,14 @@ age_vs_covid_death <- age_vs_covid_death %>% # Saving the data in original objec
 
 # ______________----
 
+# Making some statistics for the plot----
+age_death_stats <- age_vs_covid_death %>% 
+  group_by(age_range) %>%  # Grouping by age
+  summarise(n = n()) %>% # Shows deaths by age category
+  mutate(age_cat_prob = n/sum(n)) # Adding new variable involving frequency of deaths per age category / total number died
+
+#_______________----
+
+
+
+
