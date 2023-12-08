@@ -23,5 +23,11 @@ covid_data%>%
   select(died_covid)%>% # Selecting death from covid variable from dataset
   summarise(n=n()) #Calculating all individuals involved
 
+# Checking total deaths
+covid_data %>% 
+  select(died_covid) %>% #Selects death from covid variable
+  filter(died_covid == "Yes") %>% # Filter only deaths
+  summarise (n=n()) # Summarizes total deaths
+
 
 
