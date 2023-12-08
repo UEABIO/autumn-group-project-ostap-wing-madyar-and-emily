@@ -42,3 +42,9 @@ covid_data %>%
   group_by(case_age, died_covid) %>%  # Grouping data by the 2 variables
   summarise(n = n()) # Outputting all the values per variable
 
+# Checking for distinct values in death from covid variable
+covid_data %>% 
+  select(died_covid)%>% # Selecting the variable
+  group_by(died_covid)%>% # Grouping by deaths
+  summarise(n=n()) # Outputting all distinct values and number per category
+
