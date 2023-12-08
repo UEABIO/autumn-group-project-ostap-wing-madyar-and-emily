@@ -54,3 +54,9 @@ covid_data %>%
   arrange(case_age)%>% # Arranging from lowest to highest
   distinct() # Outputting all distinct values
 
+# Calculating how many NA in age variable before filtering for "Yes" deaths
+
+covid_data %>%
+  dplyr::summarise(count_na_age = sum (is.na(case_age))) # NAs in age variable
+
+
