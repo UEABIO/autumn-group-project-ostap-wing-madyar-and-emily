@@ -141,6 +141,13 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
 
 #______________----
 
+
+# Checking accessibility for colorblind people----
+colorBlindness::cvdPlot()
+
+
+#______________----
+
 # Saving the final plot as png----
 ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning folder and name to the file
        plot= age_death_bar_plot, # Assigning my plot to be saved
