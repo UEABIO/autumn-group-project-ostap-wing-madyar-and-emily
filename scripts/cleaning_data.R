@@ -12,7 +12,7 @@ covid_data_raw <- read_csv("data/covid_example_data.csv")
 #___________________________----
 
 
-## Exploring data to clean it -----
+# Exploring data to clean it -----
 
 # Checking if variable types and names are appropriate, also how many categories
 glimpse (covid_data_raw)
@@ -47,12 +47,12 @@ covid_data %>%
 covid_data <- rename(covid_data,
                      "case_dates"="reprt_creationdt_false") # use rename from the dplyr package
 
-# Checking the study period of cases to be as extra information----
+# Checking the study period of cases to be as extra information
 # Converting the character date values into data format and calculating the study period
 covid_data <- covid_data %>%
   mutate(case_dates = lubridate::dmy(case_dates))  #Converting into date format
 
-# Calculating the study period
+# Calculating the study period 
 covid_data %>% 
   summarise(first_case=min(case_dates), # Pulling out the first date of case
             last_case=max(case_dates),  # Pulling out the last date of case
