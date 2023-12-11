@@ -123,6 +123,8 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
   geom_text(data=age_death_stats,   # Providing data for bar text
             aes(y=(n+35),       # Shifting bar text to make is visually accessible
                 x=age_range,        # Stating where I like my bar text to be
-                label=scales::percent(age_cat_prob)))      #Inserting probability text and converting into a percentage
+                label=scales::percent(age_cat_prob))) +    #Inserting probability text and converting into a percentage
+  coord_flip()+     # Flipping coordinate axis
+  theme_classic()      # Setting theme
 
 
