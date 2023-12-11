@@ -114,8 +114,10 @@ covid_data %>%
 # Building final plot ----
 # Bar plot representing deaths per age category with proportion out of total population
 age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
-  ggplot(aes(x=age_range)) +       #Setting x-axis variable
-  geom_bar () +
+  ggplot(aes(x=age_range), colour= "black") +       #Setting x-axis variable
+  geom_bar (aes(fill=age_range,   # Filling in the bars according to age categories
+                colour= "black"), # Coloring the bars to make them stand out
+            width = 0.7) +      #Setting width of bars
   labs(x="Age groups \n",       # Labeling x-axis and making an indent for clarity
        y = "\n Number of deaths per 40 000",      # Labeling y-axis and making an indent for clarity
        title= "Number of COVID19 deaths by age categories", # Inserting a tittle
@@ -124,9 +126,16 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
             aes(y=(n+35),       # Shifting bar text to make is visually accessible
                 x=age_range,        # Stating where I like my bar text to be
                 label=scales::percent(age_cat_prob))) +    #Inserting probability text and converting into a percentage
+  scale_fill_manual(values=c("deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "cornflowerblue"))+
   coord_flip()+     # Flipping coordinate axis
   theme_classic() +    # Setting theme
   scale_y_continuous(breaks = seq(0, 600, 50)) # Making max range 600 on flipped y-axis, in 50 intervals snips.
 # For better clarity of where the smallest bar stop
 
-
+#______________----
