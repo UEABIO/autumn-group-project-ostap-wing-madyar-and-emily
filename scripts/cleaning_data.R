@@ -42,3 +42,7 @@ covid_data <- unique(covid_data) # Only includes unique individuals, no duplicat
 covid_data %>% 
   duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
   sum() # sums all duplicates if present
+
+# Renaming the variable in the new data frame for future work
+covid_data <- rename(covid_data,
+                     "case_dates"="reprt_creationdt_false") # use rename from the dplyr package
