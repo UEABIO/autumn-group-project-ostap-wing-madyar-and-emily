@@ -2,19 +2,19 @@
 ## Ostap
 ### Exploring death rates on age categories
 
-#__________________----
+#___________________----
 
 # Setting up personal loading packages ----
 library(colorBlindness) #check plot accessibility
 
-#__________________-----
+#___________________-----
 
 # Loading objects and functions from main cleaning script ----
 # Import tidied covid data
 
 source("scripts/cleaning_data.R")
 
-#__________________-----
+#___________________-----
 
 # Exploring the variables of interest for my plot ----
 
@@ -62,7 +62,7 @@ covid_data %>%
 covid_data %>%
   dplyr::summarise(count_na_age = sum (is.na(case_age))) # NAs in age variable
 
-#_______________----
+#___________________----
 
 # Narrowing down data frame for the interested variables ----
 # New variable for the data frame to contain only individuals that died from covid from different ages
@@ -70,7 +70,7 @@ age_vs_covid_death <- covid_data %>%
   select(pid, case_age, died_covid) %>% # selecting variables of interest
   filter(died_covid == "Yes") # including only "Yes" values in the death from covid variable, removes any NA/ unknown
 
-# _____________----
+#___________________----
 
 # Exploring data distribution of deaths across all ages to inform into age categories----
 ggplot(data = age_vs_covid_death, # Feeding data
@@ -80,7 +80,7 @@ ggplot(data = age_vs_covid_death, # Feeding data
 # Can be understood that there are not a lot of old people above 80 roughly
 # Some data is missing due to NAs and other uninformative values that cant be used
 
-#______________----
+#___________________----
 
 # Making age categories for deaths and saving into new variable----
 # Following the last bar plot it makes sense to group the individuals above 80 year into one age category ->
@@ -95,7 +95,7 @@ age_vs_covid_death <- age_vs_covid_death %>% # Saving the data in original objec
                                case_age >= 80 ~ "80+")) %>%
   group_by(age_range) # Group deaths into age categories
 
-# ______________----
+#___________________----
 
 # Making some statistics for the plot----
 age_death_stats <- age_vs_covid_death %>% 
@@ -103,7 +103,7 @@ age_death_stats <- age_vs_covid_death %>%
   summarise(n = n()) %>% # Shows deaths by age category
   mutate(age_cat_prob = n/sum(n)) # Adding new variable involving frequency of deaths per age category / total number died
 
-#_______________----
+#___________________----
 
 # Gathering information for y-axis label----
 # This data will be put on y axis and inform of death rate
@@ -112,7 +112,7 @@ covid_data %>%
   filter (died_covid %in% c("No","Yes")) %>% # Filtering by "Yes" and "No"
   summarise(n = n()) # Summarizing the total value and will round for sake of clear message to audience
 
-#_______________----
+#___________________----
 
 
 # Building final plot ----
@@ -143,14 +143,14 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
   scale_y_continuous(breaks = seq(0, 600, 50)) # Making max range 600 on flipped y-axis, in 50 intervals snips.
 # For better clarity of where the smallest bar stop
 
-#______________----
+#___________________----
 
 
 # Checking accessibility for colorblind people----
 colorBlindness::cvdPlot()
 
 
-#______________----
+#___________________----
 
 # Saving the final plot as png----
 ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning folder and name to the file
@@ -159,7 +159,7 @@ ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning fold
        width = 6, #Setting width
        height= 5) #Setting width
 
-# _________________----
+#___________________----
 
 
 
