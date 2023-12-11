@@ -156,7 +156,7 @@ colorBlindness::cvdPlot()
 ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning folder and name to the file
        plot= age_death_bar_plot, # Assigning my plot to be saved
        dpi=300, # Setting resolution
-       width = 9, #Setting width
+       width = 7, #Setting width
        height= 7) #Setting width
 
 # _________________----
