@@ -120,6 +120,14 @@ covid_data %>%
 age_vs_covid_death <- rename(covid_data,
                              "case_dates"="reprt_creationdt_false")  # rename from the dplyr package
 
+# Converting the character date values into data format and calculating study period
+age_vs_covid_death <- age_vs_covid_death %>% 
+  mutate(case_dates = lubridate::dmy(case_dates)) + #Converting into date format
+  summarise(first_case=min(case_dates), # Pulling first case date
+            last_case=max(case_dates),  # Pulling last case date
+            study_duration_years = (last_case-first_case)/dyears(1)) # Calculating period in years
+
+#_____________________----
 
 # Building final plot ----
 # Bar plot representing deaths per age category with proportion out of total population
