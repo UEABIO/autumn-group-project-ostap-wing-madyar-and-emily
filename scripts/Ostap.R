@@ -122,10 +122,10 @@ age_vs_covid_death <- rename(covid_data,
 
 # Converting the character date values into data format and calculating study period
 age_vs_covid_death <- age_vs_covid_death %>% 
-  mutate(case_dates = lubridate::dmy(case_dates)) + #Converting into date format
+  mutate(case_dates = lubridate::dmy(case_dates)) %>% #Converting into date format
   summarise(first_case=min(case_dates), # Pulling first case date
             last_case=max(case_dates),  # Pulling last case date
-            study_duration_years = (last_case-first_case)/dyears(1)) # Calculating period in years
+            study_duration_months = (last_case-first_case)/dmonths(1)) # Calculating period in years
 
 #_____________________----
 
