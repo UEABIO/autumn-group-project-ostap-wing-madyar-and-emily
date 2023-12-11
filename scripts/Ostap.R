@@ -135,6 +135,7 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
                              "cornflowerblue"))+
   coord_flip()+     # Flipping coordinate axis
   theme_classic() +    # Setting theme
+  theme(legend.position = "none") + # Removing legend position
   scale_y_continuous(breaks = seq(0, 600, 50)) # Making max range 600 on flipped y-axis, in 50 intervals snips.
 # For better clarity of where the smallest bar stop
 
