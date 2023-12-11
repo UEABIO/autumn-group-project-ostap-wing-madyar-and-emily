@@ -114,9 +114,6 @@ covid_data %>%
 
 #_______________----
 
-# Checking the study period of cases to be put on the plot as extra information----
-
-
 
 # Building final plot ----
 # Bar plot representing deaths per age category with proportion out of total population
