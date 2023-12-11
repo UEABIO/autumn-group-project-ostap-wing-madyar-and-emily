@@ -18,6 +18,9 @@ source("scripts/cleaning_data.R")
 
 # Exploring the variables of interest for my plot ----
 
+# Brief overview of data
+glimpse(covid_data)
+
 # Population sampled
 covid_data%>%
   select(died_covid)%>% # Selecting death from covid variable from dataset
@@ -110,6 +113,10 @@ covid_data %>%
   summarise(n = n()) # Summarizing the total value and will round for sake of clear message to audience
 
 #_______________----
+
+# Checking the study period of cases to be put on the plot as extra information----
+
+
 
 # Building final plot ----
 # Bar plot representing deaths per age category with proportion out of total population
