@@ -116,18 +116,7 @@ covid_data %>%
 
 # Checking the study period of cases to be put on the plot as extra information----
 
-# Changing the variable name to more meaningful and making a new variable for data set I will use
-age_vs_covid_death <- rename(covid_data,
-                             "case_dates"="reprt_creationdt_false")  # rename from the dplyr package
 
-# Converting the character date values into data format and calculating study period
-age_vs_covid_death <- age_vs_covid_death %>% 
-  mutate(case_dates = lubridate::dmy(case_dates)) %>% #Converting into date format
-  summarise(first_case=min(case_dates), # Pulling first case date
-            last_case=max(case_dates),  # Pulling last case date
-            study_duration_months = (last_case-first_case)/dmonths(1)) # Calculating period in years
-
-#_____________________----
 
 # Building final plot ----
 # Bar plot representing deaths per age category with proportion out of total population
@@ -144,13 +133,13 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
             aes(y=(n+35),       # Shifting bar text to make is visually accessible
                 x=age_range,        # Stating where I like my bar text to be
                 label=scales::percent(age_cat_prob))) +    #Inserting probability text and converting into a percentage
-  scale_fill_manual(values=c("cornflowerblue",
-                             "cornflowerblue",
-                             "cornflowerblue",
-                             "cornflowerblue",
-                             "cornflowerblue",
-                             "cornflowerblue",
-                             "red"))+
+  scale_fill_manual(values=c("deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "deepskyblue",
+                             "darkblue"))+
   coord_flip()+     # Flipping coordinate axis
   theme_classic() +    # Setting theme
   theme(legend.position = "none") + # Removing legend position
