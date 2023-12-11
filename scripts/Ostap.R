@@ -125,6 +125,8 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
                 x=age_range,        # Stating where I like my bar text to be
                 label=scales::percent(age_cat_prob))) +    #Inserting probability text and converting into a percentage
   coord_flip()+     # Flipping coordinate axis
-  theme_classic()      # Setting theme
+  theme_classic() +    # Setting theme
+  scale_y_continuous(breaks = seq(0, 600, 50)) # Making max range 600 on flipped y-axis, in 50 intervals snips.
+# For better clarity of where the smallest bar stop
 
 
