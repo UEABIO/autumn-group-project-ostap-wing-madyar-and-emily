@@ -116,6 +116,9 @@ covid_data %>%
 
 # Checking the study period of cases to be put on the plot as extra information----
 
+# Changing the variable name to more meaningful and making a new variable for data set I will use
+age_vs_covid_death <- rename(covid_data,
+                             "case_dates"="reprt_creationdt_false")  # rename from the dplyr package
 
 
 # Building final plot ----
