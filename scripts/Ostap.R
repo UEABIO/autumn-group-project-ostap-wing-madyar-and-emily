@@ -5,7 +5,7 @@
 #__________________----
 
 # Setting up personal loading packages ----
-library(colorBlindness) #check plot accessibility #### REMOVE NOT NEEDED
+library(colorBlindness) #check plot accessibility
 
 #__________________-----
 
