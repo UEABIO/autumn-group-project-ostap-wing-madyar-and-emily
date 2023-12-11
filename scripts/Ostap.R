@@ -126,13 +126,13 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
             aes(y=(n+35),       # Shifting bar text to make is visually accessible
                 x=age_range,        # Stating where I like my bar text to be
                 label=scales::percent(age_cat_prob))) +    #Inserting probability text and converting into a percentage
-  scale_fill_manual(values=c("deepskyblue",
-                             "deepskyblue",
-                             "deepskyblue",
-                             "deepskyblue",
-                             "deepskyblue",
-                             "deepskyblue",
-                             "cornflowerblue"))+
+  scale_fill_manual(values=c("cornflowerblue",
+                             "cornflowerblue",
+                             "cornflowerblue",
+                             "cornflowerblue",
+                             "cornflowerblue",
+                             "cornflowerblue",
+                             "red"))+
   coord_flip()+     # Flipping coordinate axis
   theme_classic() +    # Setting theme
   theme(legend.position = "none") + # Removing legend position
@@ -156,3 +156,9 @@ ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning fold
        height= 7) #Setting width
 
 # _________________----
+
+
+
+
+
+
