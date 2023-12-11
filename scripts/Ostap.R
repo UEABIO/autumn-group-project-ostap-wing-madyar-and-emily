@@ -117,6 +117,8 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
   ggplot(aes(x=age_range)) +       #Setting x-axis variable
   geom_bar () +
   labs(x="Age groups \n",       # Labeling x-axis and making an indent for clarity
-       y = "\n Number of deaths per 40 000")      # Labeling y-axis and making an indent for clarity
+       y = "\n Number of deaths per 40 000",      # Labeling y-axis and making an indent for clarity
+       title= "Number of COVID19 deaths by age categories", # Inserting a tittle
+       subtitle= "Proportions of individual groups")       # Inserting a sub-tittle
 
 
