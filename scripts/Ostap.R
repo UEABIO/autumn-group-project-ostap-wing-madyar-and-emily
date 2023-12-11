@@ -111,6 +111,10 @@ covid_data %>%
 
 #_______________----
 
-
+# Building final plot ----
+# Bar plot representing deaths per age category with proportion out of total population
+age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
+  ggplot(aes(x=age_range)) +       #Setting x-axis variable
+  geom_bar ()
 
 
