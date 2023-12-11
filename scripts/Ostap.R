@@ -115,9 +115,9 @@ covid_data %>%
 # Bar plot representing deaths per age category with proportion out of total population
 age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
   ggplot(aes(x=age_range), colour= "black") +       #Setting x-axis variable
-  geom_bar (aes(fill=age_range,   # Filling in the bars according to age categories
-                colour= "black"), # Coloring the bars to make them stand out
-            width = 0.7) +      #Setting width of bars
+  geom_bar (aes(fill=age_range),   # Filling in the bars according to age categories
+            width = 0.7,
+            colour= "black") +      #Setting width of bars
   labs(x="Age groups \n",       # Labeling x-axis and making an indent for clarity
        y = "\n Number of deaths per 40 000",      # Labeling y-axis and making an indent for clarity
        title= "Number of COVID19 deaths by age categories", # Inserting a tittle
@@ -140,3 +140,12 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
 # For better clarity of where the smallest bar stop
 
 #______________----
+
+# Saving the final plot as png----
+ggsave("figures/ostap_07_12_2023_5023Y_minireport_barplot.png", # Assigning folder and name to the file
+       plot= age_death_bar_plot, # Assigning my plot to be saved
+       dpi=300, # Setting resolution
+       width = 9, #Setting width
+       height= 7) #Setting width
+
+# _________________----
