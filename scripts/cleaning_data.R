@@ -41,20 +41,3 @@ covid_data <- unique(covid_data) # Only includes unique individuals, no duplicat
 covid_data %>% 
   duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
   sum() # sums all duplicates if present
-
-# Renaming the variable in the new data frame for future work
-covid_data <- rename(covid_data,
-                     "case_dates"="reprt_creationdt_false") # use rename from the dplyr package
-
-# Checking the study period of cases to be as extra information
-# Converting the character date values into data format and calculating the study period
-covid_data <- covid_data %>%
-  mutate(case_dates = lubridate::dmy(case_dates))  #Converting into date format
-
-# Calculating the study period 
-covid_data %>% 
-  summarise(first_case=min(case_dates), # Pulling out the first date of case
-            last_case=max(case_dates),  # Pulling out the last date of case
-            study_duration_months = (last_case-first_case)/lubridate::dmonths(1)) # Calculating the period in months
-
-#___________________-----

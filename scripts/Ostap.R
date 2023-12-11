@@ -16,6 +16,24 @@ source("scripts/cleaning_data.R")
 
 #___________________-----
 
+# Trying to understand the study period----
+
+# Renaming the variable in the new data frame into more meaningful
+covid_data <- rename(covid_data,
+                     "case_dates"="reprt_creationdt_false") # use rename from the dplyr package
+
+# Converting the character date values into data format to calculate the study period
+covid_data <- covid_data %>%
+  mutate(case_dates = lubridate::dmy(case_dates))  #Converting into date format
+
+# Calculating the study period 
+covid_data %>% 
+  summarise(first_case=min(case_dates), # Pulling out the first date of case
+            last_case=max(case_dates),  # Pulling out the last date of case
+            study_duration_months = (last_case-first_case)/lubridate::dmonths(1)) # Calculating the period in months
+
+#___________________-----
+
 # Exploring the variables of interest for my plot ----
 
 # Brief overview of data
