@@ -1,15 +1,14 @@
-# Script for cleaning
+# Script for cleaning----
 
-#___________________________----
-# SET UP ----
+#___________________----
 
-# PACKAGES ----
+# Loading packages ----
 library(tidyverse) # tidy data packages
 library(janitor) # clean variable names
 
-# IMPORT DATA ----
+# Importing data ----
 covid_data_raw <- read_csv("data/covid_example_data.csv")
-#___________________________----
+#___________________----
 
 
 # Exploring data to clean it -----
@@ -58,4 +57,4 @@ covid_data %>%
             last_case=max(case_dates),  # Pulling out the last date of case
             study_duration_months = (last_case-first_case)/lubridate::dmonths(1)) # Calculating the period in months
 
-
+#___________________-----
