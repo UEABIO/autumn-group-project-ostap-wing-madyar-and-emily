@@ -1,18 +1,17 @@
-# Script for cleaning
+# Script for cleaning----
 
-#___________________________----
-# SET UP ----
+#___________________----
 
-# PACKAGES ----
+# Loading packages ----
 library(tidyverse) # tidy data packages
 library(janitor) # clean variable names
 
-# IMPORT DATA ----
+# Importing data ----
 covid_data_raw <- read_csv("data/covid_example_data.csv")
-#___________________________----
+#___________________----
 
 
-## Exploring data to clean it -----
+# Exploring data to clean it -----
 
 # Checking if variable types and names are appropriate, also how many categories
 glimpse (covid_data_raw)
