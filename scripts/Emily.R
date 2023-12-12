@@ -73,7 +73,7 @@ sym_case %>%
 ##Group "Unk" (unknown) and "NA" observations of headache----
 sym_case_grp <- sym_case %>% 
   mutate(headache = replace_na(headache, "Unk")) %>%
-  mutate(headache = case_when(headache == "Unk" ~ "Unconfirmed",
+  mutate(headache = case_when(headache == "Unk" ~ "Unknown",
                               headache == "Yes" ~ "Yes",
                               headache == "No" ~ "No"))
 
@@ -87,11 +87,11 @@ sym_case_grp_n <- sym_case_grp %>%
   mutate()
 
 sym_case_grp_n <-sym_case_grp_n %>%
-  mutate(freq = round(freq, digits = 3)) %>% #round off the relative frequency to 3 digits
+  mutate(freq = round(freq, digits = 2)) %>% #round off the relative frequency to 3 digits
   mutate(percent = freq * 100) #obtain percentage
 
 sym_case_grp_n <- sym_case_grp_n %>%
-  mutate(headache = fct_relevel(headache, "Unconfirmed", "No", "Yes")) #reorder level
+  mutate(headache = fct_relevel(headache, "Unknown", "No", "Yes")) #reorder level
 
 #_____________________----
 
@@ -103,29 +103,27 @@ total <-sym_case_grp_n %>%
   pull() #extract the numerical value from the tibble
 
 ## Create Bar Plot----
-headache_graph <- sym_case_grp_n %>%
-  ggplot(aes(x=n_distinct, y=headache, fill = headache))+
-  geom_col()+ #width
-  labs(y = "Symptom of headache experienced",
-       x = "Number of cases",
-       title = "The symptom of headache does not indicate a positive COVID-19 diagnosis",
-       subtitle = paste0("Sample Size: ", total," positive cases"))+
-  geom_text(aes(label = scales::percent(freq)), hjust = -0.2)+ #display percentage
-  scale_fill_manual(values=c("darkblue", #Apply colours
-                             "deepskyblue",
+headache_bar <- sym_case_grp_n %>% #save the plot
+  ggplot(aes(x=n_distinct, y=headache, fill = headache))+ #select variables
+  geom_col(width = 0.6)+ #adjust width of the bars
+  xlim(0, 35000)+
+  labs(x = "Number of cases",
+       y = "Symptom of headache experienced", #provide labels for both axes
+       title = "The symptom of headache is not indicative of a positive COVID-19 diagnosis",
+       subtitle = paste0("Sample Size: ", total," positive cases"))+ #combine the variable for total number of positive cases into the string
+  geom_text(aes(label = scales::percent(freq)), hjust = -0.15)+ #display percentage
+  scale_fill_manual(values=c("darkblue", #Apply colours to the corresponding categories to highlight the unconfirmed cases
+                             "deepskyblue4",
                              "deepskyblue"))+
   theme_classic()+
   theme(legend.position = "none")
 
-# Checking accessibility for colorblind people----
+## Checking accessibility for colorblind people----
 colorBlindness::cvdPlot()
 
 ## Output----
-ggsave(
-  "headache_case",
-  plot = headache_bar,
-  device = "png",
-  path = "/filename", #to separate folder for figures
-  dpi = 300,
-  bg = NULL
-)
+ggsave("figures/emily_headache_barplot.png", # Assign folder and name to the file
+       plot= headache_bar, # Assign my plot to be saved
+       dpi=300, # Setting resolution
+       width = 8, #Setting width
+       height= 6) #Setting width
