@@ -130,7 +130,7 @@ colorBlindness::cvdPlot()
 ggsave("figures/wing_c19gender_barplot.png", # Assigning folder and name to the file
        plot= gender_death_bar_plot, # Assigning my plot to be saved
        dpi=300, # Setting resolution
-       width = 6, #Setting width
+       width = 7, #Setting width
        height= 5) #Setting width
 
 #___________________----
