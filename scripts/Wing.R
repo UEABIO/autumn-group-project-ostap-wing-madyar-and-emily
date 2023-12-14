@@ -75,3 +75,12 @@ ggplot(data = gender_vs_covid_death, # Selecting data
 # Insight - Male with more deaths than Females. Interesting as more males in sample than females.
 # Some data is missing due to NAs and Under Review
 
+#___________________----
+
+# Making statistics for the plot----
+gender_death_stats <- gender_vs_covid_death %>% 
+  group_by(case_gender) %>% # Grouping by gender
+  summarise(n = n()) %>% # Shows deaths by gender category
+  mutate(gender_death_prob = n/sum(n)) # Adding new variable, percentage of deaths from each gender
+
+#___________________----
