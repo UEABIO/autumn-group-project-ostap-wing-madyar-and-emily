@@ -65,3 +65,12 @@ gender_vs_covid_death %>%
   group_by(case_gender)%>% # Grouping by gender
   summarise(n=n()) # Outputting all distinct values and number per category
 
+#___________________----
+
+# Briefly exploring data distribution of deaths across all ages to inform into age categories----
+## Briefly plotting data to visualize. Allows analyzing and interpreting data
+ggplot(data = gender_vs_covid_death, # Selecting data
+       aes(x = case_gender)) + # Setting x axis
+  geom_bar() # Building bar plot with death frequency/count
+# Insight - Male with more deaths than Females. Interesting as more males in sample than females.
+# Some data is missing due to NAs and Under Review
