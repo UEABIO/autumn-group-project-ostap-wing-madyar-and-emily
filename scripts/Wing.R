@@ -104,7 +104,7 @@ gender_death_bar_plot <- gender_vs_covid_death %>%      # Saving my plot into ob
             colour= "black") +      #Setting width of bars
   labs(x="Gender \n",       # Labeling x-axis
        y = "\n Number of deaths",      # Labeling y-axis
-       title= "COVID19 Deaths By Gender", # Insert title of plot
+       title= "COVID-19 Deaths By Gender", # Insert title of plot
        subtitle= ("Sample Size: Male = 38393 & Female = 43298"))+ # Insert subtitle
   geom_text(data=gender_death_stats,   # Providing data for bar text
             aes(y=(n+50),       # Shifting bar text to make it more visually accessible with more clarity 
