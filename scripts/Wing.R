@@ -40,3 +40,15 @@ covid_data %>%
   group_by(case_gender, died_covid) %>%  # Grouping data by the 2 variables
   summarise(n = n()) # Outputting all the values per variable
 
+# Checking for distinct values in death from covid variable
+covid_data %>% 
+  select(died_covid)%>% # Selecting the variable (died covid)
+  group_by(died_covid)%>% # Grouping by deaths
+  summarise(n=n()) # Outputting all distinct values and number per category
+
+# Checking for any other values than male or female, in gender variable
+covid_data %>%
+  select(case_gender)%>% # Selecting the variable (gender)
+  group_by(case_gender)%>% # Grouping by gender
+  summarise(n=n()) # Outputting all distinct values and number per category
+
