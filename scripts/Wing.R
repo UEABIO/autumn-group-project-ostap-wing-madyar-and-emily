@@ -33,3 +33,10 @@ covid_data %>%
   select(died_covid) %>% #Selects death from covid variable
   filter(died_covid == "Yes") %>% # Filter only deaths
   summarise (n=n()) # Summarizes total deaths (1338)
+
+# Checking for any unexpected values such as NA and unknown in the age and death from covid variables
+# Looking if are any typos in the values
+covid_data %>%
+  group_by(case_gender, died_covid) %>%  # Grouping data by the 2 variables
+  summarise(n = n()) # Outputting all the values per variable
+
