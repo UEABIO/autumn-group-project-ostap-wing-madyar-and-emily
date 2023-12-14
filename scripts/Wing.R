@@ -94,3 +94,25 @@ gender_death_stats <- gender_vs_covid_death %>%
   mutate(gender_death_prob = n/sum(n)) # Adding new variable, percentage of deaths from each gender
 
 #___________________----
+
+# Building final plot ----
+# Bar plot representing deaths per gender category 
+gender_death_bar_plot <- gender_vs_covid_death %>%      # Saving my plot into object
+  ggplot(aes(x=case_gender), colour= "black") +       #Setting x-axis variable and colour
+  geom_bar (aes(fill=case_gender),   # Filling in the bars according to gender categories
+            width = 0.7,
+            colour= "black") +      #Setting width of bars
+  labs(x="Gender \n",       # Labeling x-axis
+       y = "\n Number of deaths",      # Labeling y-axis
+       title= "COVID19 Deaths By Gender", # Insert title of plot
+       subtitle= ("Sample Size: Male = 38393 & Female = 43298"))+ # Insert subtitle
+  geom_text(data=gender_death_stats,   # Providing data for bar text
+            aes(y=(n+50),       # Shifting bar text to make it more visually accessible with more clarity 
+                x=case_gender,        # Stating where bar text should be
+                label=scales::percent(gender_death_prob))) +    #Inserting probability text and converting it into a percentage
+  scale_fill_manual(values=c("deepskyblue",
+                             "darkblue"))+
+  coord_flip()+     # Flipping coordinate axis, more professional look
+  theme_classic() +    # Setting prefered theme
+  theme(legend.position = "none") + # Removing legend 
+  scale_y_continuous(breaks = seq(0, 750, 50)) # Making max range 750 on flipped y-axis, in intervals of 50. For better clarity of where the smallest bar stop
