@@ -52,6 +52,16 @@ covid_data %>%
   group_by(case_gender)%>% # Grouping by gender
   summarise(n=n()) # Outputting all distinct values and number per category
 
+# Calculating how many NA in died_covid variable 
+
+covid_data %>%
+  dplyr::summarise(count_na_died_covid = sum (is.na(died_covid))) # NAs in died_covid variable
+
+# Calculating how many NA in gender variable before filtering for "Yes" deaths
+
+covid_data %>%
+  dplyr::summarise(count_na_gender = sum (is.na(case_gender))) # NAs in gender variable
+
 #___________________----
 
 # Narrowing down data frame for the interested variables ----
