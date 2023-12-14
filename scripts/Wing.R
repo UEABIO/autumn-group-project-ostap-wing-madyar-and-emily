@@ -15,3 +15,11 @@ library(colorBlindness) #check accessibility of plot to colour blind users
 
 source("scripts/cleaning_data.R")
 
+#___________________-----
+
+# Determining and exploring the variables needed for my plot ----
+
+# Brief overview of data
+glimpse(covid_data)
+summary(covid_data)
+
