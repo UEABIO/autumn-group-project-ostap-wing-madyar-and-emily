@@ -23,3 +23,13 @@ source("scripts/cleaning_data.R")
 glimpse(covid_data)
 summary(covid_data)
 
+# Checking population sampled 
+covid_data%>%
+  select(died_covid)%>% # Selecting died covid variable from dataset
+  summarise(n=n()) #Calculating all individuals involved (82100)
+
+# Checking total deaths from people sampled
+covid_data %>% 
+  select(died_covid) %>% #Selects death from covid variable
+  filter(died_covid == "Yes") %>% # Filter only deaths
+  summarise (n=n()) # Summarizes total deaths (1338)
