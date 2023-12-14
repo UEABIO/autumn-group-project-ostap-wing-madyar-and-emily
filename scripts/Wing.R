@@ -52,3 +52,12 @@ covid_data %>%
   group_by(case_gender)%>% # Grouping by gender
   summarise(n=n()) # Outputting all distinct values and number per category
 
+#___________________----
+
+# Narrowing down data frame for the interested variables ----
+# New variable for the data frame to contain only individuals that died from covid from different gender
+gender_vs_covid_death <- covid_data %>%
+  select(pid, case_gender, died_covid) %>% # selecting variables of interest
+  filter(died_covid == "Yes", case_gender == "Male" | case_gender == "Female") # including only "Yes" values in the death from covid variable, Filter for only "Male" and "Female in the gender variable, removes any NA/ unknown  
+
+
