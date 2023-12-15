@@ -105,7 +105,7 @@ total <-sym_case_grp_n %>%
 ## Create Bar Plot----
 headache_bar <- sym_case_grp_n %>% #save the plot
   ggplot(aes(x=n_distinct, y=headache, fill = headache))+ #select variables
-  geom_col(width = 0.6)+ #adjust width of the bars
+  geom_col(width = 0.6, colour = "black")+ #adjust width of the bars and apply borders to make them more visible
   xlim(0, 35000)+
   labs(x = "Number of cases",
        y = "Symptom of headache experienced", #provide labels for both axes
@@ -118,7 +118,7 @@ headache_bar <- sym_case_grp_n %>% #save the plot
   theme_classic()+
   theme(legend.position = "none")
 
-## Checking accessibility for colorblind people----
+## Check colour scheme accessibility----
 colorBlindness::cvdPlot()
 
 ## Output----
