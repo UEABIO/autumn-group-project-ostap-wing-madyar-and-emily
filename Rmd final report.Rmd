@@ -1,0 +1,33 @@
+---
+title: "COVID19 analysis report"
+author: "Ostap, Madiyar, Wing, and Emily"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r, include = FALSE}
+
+# GLOBAL KNITR OPTIONS----
+# Global options for the knitted document. Warning and Messages hidden, code hidden, outputs hidden and will be shown individually.
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, messages = FALSE, include = FALSE)
+
+# ____________________----
+
+```
+
+```{r}
+
+library(tidyverse)
+
+source("scripts/Ostap.R")
+
+```
+
+```{r include=TRUE}
+print(age_death_bar_plot)
+
+```
+
+
+Test

@@ -260,5 +260,4 @@ sym_count <- tibble(symptom, n_pos, hosp_YN, sum_pos)
 
 ggplot(sym_count, aes(fill=n_pos, x=hosp_YN, y=sum_pos))+
   geom_bar(position ='dodge', stat='identity')+
-  facet_wrap(~symptom)+
-  
+  facet_wrap(~symptom)
