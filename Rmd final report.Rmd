@@ -17,15 +17,13 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, messages = FALSE, include =
 ```
 
 ```{r}
-
-library(tidyverse)
-
+# Imported Ostaps script
 source("scripts/Ostap.R")
 
 ```
 
 ```{r include=TRUE}
-print(age_death_bar_plot)
+print(age_death_bar_plot) # Included command to display the plot
 
 ```
 
