@@ -27,4 +27,4 @@ print(age_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 1:** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category. The assumed reason for the observations can be due to deteriorating immunity with age.
+**Figure 1:** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category. The assumed reason for the observations can be due to deteriorating immunity with the age.
