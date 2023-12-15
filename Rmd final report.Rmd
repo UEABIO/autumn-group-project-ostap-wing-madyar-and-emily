@@ -29,5 +29,4 @@ print(age_death_bar_plot)
 
 ```
 
-
-Test
+**Figure 1:** As the age increases the death rate rises, with the most significant death observations in the 80+ category.
