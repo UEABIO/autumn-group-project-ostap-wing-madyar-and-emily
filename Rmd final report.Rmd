@@ -28,3 +28,14 @@ print(age_death_bar_plot) # Included command to display the plot
 ```
 
 **Figure 1:** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category. The assumed reason for the observations can be due to deteriorating immunity with the age.
+
+```{r}
+# Imported Wing's script
+source("scripts/Wing.R")
+
+```
+
+```{r include=TRUE}
+print(gender_death_bar_plot) # Included command to display the plot
+
+```
