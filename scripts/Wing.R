@@ -104,8 +104,7 @@ gender_death_bar_plot <- gender_vs_covid_death %>%      # Saving my plot into ob
             colour= "black") +      #Setting width of bars
   labs(x="Gender \n",       # Labeling x-axis
        y = "\n Number of deaths",      # Labeling y-axis
-       title= "COVID-19 Deaths By Gender", # Insert title of plot
-       subtitle= ("Sample Size: Male = 38393 & Female = 43298"))+ # Insert subtitle
+       title= "COVID-19 Deaths By Gender")+ # Insert title of plot
   geom_text(data=gender_death_stats,   # Providing data for bar text
             aes(y=(n+50),       # Shifting bar text to make it more visually accessible with more clarity 
                 x=case_gender,        # Stating where bar text should be
@@ -114,7 +113,8 @@ gender_death_bar_plot <- gender_vs_covid_death %>%      # Saving my plot into ob
                              "darkblue"))+
   coord_flip()+     # Flipping coordinate axis, more professional look
   theme_classic() +    # Setting prefered theme
-  theme(legend.position = "none") + # Removing legend 
+  theme(plot.title = element_text(hjust = 0.5))+ # Making title central
+  theme(legend.position = "none") + # Removing legend
   scale_y_continuous(breaks = seq(0, 750, 50)) # Making max range 750 on flipped y-axis, in intervals of 50. For better clarity of where the smallest bar stop
 
 #___________________----
