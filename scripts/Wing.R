@@ -112,7 +112,7 @@ gender_death_bar_plot <- gender_vs_covid_death %>%      # Saving my plot into ob
   scale_fill_manual(values=c("deepskyblue",
                              "darkblue"))+
   coord_flip()+     # Flipping coordinate axis, more professional look
-  theme_classic() +    # Setting prefered theme
+  theme_classic() +    # Setting preferred theme
   theme(plot.title = element_text(hjust = 0.5))+ # Making title central
   theme(legend.position = "none") + # Removing legend
   scale_y_continuous(breaks = seq(0, 750, 50)) # Making max range 750 on flipped y-axis, in intervals of 50. For better clarity of where the smallest bar stop
