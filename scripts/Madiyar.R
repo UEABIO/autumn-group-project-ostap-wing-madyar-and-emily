@@ -8,6 +8,10 @@
 
 source("scripts/cleaning_data.R")
 
+library(patchwork)
+
+library(ggplot2)
+
 # ____________________----
 
 # FURTHER CLEANING----
@@ -44,7 +48,9 @@ symptom_data <- drop_na(symptom_data)
 
 # ____________________----
 
-# COUNTING VALUES
+# COUNTING VALUES----
+
+# Counting each instance
 
 symptom_data %>%
   filter(sym_fev == "Yes",
@@ -240,24 +246,62 @@ symptom_data %>%
 
 # ____________________----
 
-# WORKING WITH DATA
+# WORKING WITH DATA----
 
-# creating objects for a tibble
+# Creating objects for a tibble
 
-symptom <- c("fev", "fev", "fev", "fev", "mya", "mya", "mya", "mya", "lts", "lts", "lts", "lts", "cog", "cog", "cog", "cog", "hdc", "hdc", "hdc", "hdc", "sot", "sot", "sot", "sot")
+symptom <- c("fev", "fev", "mya", "mya", "lts", "lts", "cog", "cog", "hdc", "hdc", "sot", "sot")
 
-n_pos <- c("solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi")
+n_pos <- c("solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi", "solo", "multi")
 
 hosp_Y <- c(53, 680, 29, 728, 38, 547, 132, 838, 21, 621, 11, 354)
 
 hosp_N <- c(502, 6715, 452, 10107, 1724, 9484, 956, 10032, 813, 10803, 335, 6109)
 
-hosp_YN <- c("Yes", "Yes", "No", "No", "Yes", "Yes", "No", "No", "Yes", "Yes", "No", "No", "Yes", "Yes", "No", "No", "Yes", "Yes", "No", "No", "Yes", "Yes", "No", "No")
-
 sum_pos <- c(53, 680, 502, 6715, 29, 728, 452, 10107, 38, 547, 1724, 9484, 132, 838, 956, 10032, 21, 621, 813, 10803, 11, 354, 335, 6109) 
 
-sym_count <- tibble(symptom, n_pos, hosp_YN, sum_pos)
+sym_count_Y <- tibble(symptom, n_pos, hosp_Y)
 
-ggplot(sym_count, aes(fill=n_pos, x=hosp_YN, y=sum_pos))+
-  geom_bar(position ='dodge', stat='identity')+
-  facet_wrap(~symptom)
+sym_count_N <- tibble(symptom, n_pos, hosp_N)
+
+sym_count_Y <- sym_count_Y %>%
+  mutate(symptom = fct_relevel(symptom, "sot", "hdc", "mya", "lts", "fev", "cog"))
+
+Y_labs <- c("Sore Throat", "Headache", "Myalgia", "Loss of Taste and Smell", "Fever", "Cough")
+
+sym_count_N <- sym_count_N %>%
+  mutate(symptom = fct_relevel(symptom, "sot", "mya", "fev", "hdc", "cog", "lts"))
+
+N_labs <- c("Sore Throat", "Myalgia", "Fever", "Headache", "Cough", "Loss of Taste and Smell")
+
+# ____________________----
+
+# BUILDING THE FIGURE----
+
+plot_Y <- ggplot(sym_count_Y, aes(fill = n_pos, y = symptom, x = hosp_Y))+
+  geom_col(position ='stack', width = 1.0, color = "black", show.legend = FALSE)+
+  scale_fill_manual(values = c("deepskyblue", "darkblue"))+
+  scale_y_discrete(labels = Y_labs)+
+  labs(x = "Number of cases that led to Hospitalizations",
+       y = "Symptom",
+       title = "Occurrence of COVID-19 Symptoms leading to hospitalizations")+
+  theme_classic()
+
+plot_N <- ggplot(sym_count_N, aes(fill = n_pos, y = symptom, x = hosp_N))+
+  geom_col(position ='stack', width = 1.0, colour = "black")+
+  scale_fill_manual(labels = c("With additional Symptoms", "Only specific Symptom"), values = c("deepskyblue", "darkblue"))+
+  scale_y_discrete(labels = N_labs)+
+  labs(x = "Number of cases that did not lead to Hospitalizations",
+       y = "",
+       fill = "Included Symptoms")+
+  theme_classic()
+
+plot_F <- plot_Y+plot_N
+
+ggsave("figures/madiyar_test.png",
+       plot = plot_F,
+       dpi = 900,
+       width = 21,
+       height = 9)
+  
+
