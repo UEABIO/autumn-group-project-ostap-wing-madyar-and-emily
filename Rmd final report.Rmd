@@ -39,3 +39,14 @@ source("scripts/Wing.R")
 print(gender_death_bar_plot) # Included command to display the plot
 
 ```
+
+**Figure 2:** COVID-19 has a male bias in mortality. Males have higher mortality rate despite being sampled less. 1338 total deaths, 633 females and 705 males. 43279 females and 38376 males were sampled with confirmed cases of COVID-19. A potential reason for this bias could be the higher rate of high-risk behaviors and comorbidities in males (Singh _et al_., 2020). Studies suggest that low testosterone levels in males is associated with increased COVID‐19 mortality however there is a need for further research (Giagulli _et al_., 2021; Yassin _et al_., 2022).
+
+**Reference List:**
+
+Giagulli, V.A., Guastamacchia, E., Magrone, T., Jirillo, E., Lisco, G., De Pergola, G. and Triggiani, V., 2021. 'Worse progression of COVID‐19 in men: is testosterone a key factor?', _Andrology_, 9(1), pp. 53-64.
+
+Singh, S., Chowdhry, M., Chatterjee, A. and Khan, A., 2020. 'Gender-based disparities in COVID-19 patient outcomes: A propensity-matched analysis', _MedRxiv_.
+
+Yassin, A., Sabsigh, R., Al‐Zoubi, R.M., Aboumarzouk, O.M., Alwani, M., Nettleship, J. and Kelly, D., 2022. 'Testosterone and Covid‐19: an update', _Reviews in Medical Virology_, 33(1).
+
