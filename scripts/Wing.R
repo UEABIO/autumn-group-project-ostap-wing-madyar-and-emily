@@ -134,3 +134,9 @@ ggsave("figures/wing_c19gender_barplot.png", # Assigning folder and name to the 
        height= 5) #Setting width
 
 #___________________----
+
+# Informative statistics to be used in explanatory text  
+covid_data %>%
+  select(case_gender, confirmed_case)%>% # Selecting the variable (gender and confirmed case)
+  group_by(case_gender, confirmed_case)%>% # Grouping by gender and cofirmed case
+  summarise(n=n())
