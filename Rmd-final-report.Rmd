@@ -1,0 +1,74 @@
+---
+title: "COVID-19 analysis report"
+author: "Ostap Romanchak, Madiyar Seidaly, Wing Lun Lim, Emily Chiu"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include = FALSE}
+
+# GLOBAL KNITR OPTIONS----
+# Global options for the knitted document. Warning and Messages hidden, code hidden, outputs hidden and will be shown individually.
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, messages = FALSE, include = FALSE)
+
+# ____________________----
+
+```
+
+# Introduction
+
+The COVID-19 pandemic has affected many different people globally in many different ways. In this report we wish to investigate if age and gender have an effect on mortality, based on model data related to COVID-19, as well as to examine the severity of different symptoms.
+
+# Figures
+
+```{r import Ostap}
+# Imported Ostap's script
+source("scripts/Ostap.R")
+
+```
+
+```{r plot Ostap, include = TRUE}
+plot(age_death_bar_plot) # Included command to display the plot
+
+```
+
+**Figure 1:** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category. The assumed reason for the observations can be due to deteriorating immunity with the age.
+
+```{r import Wing}
+# Imported Wing's script
+source("scripts/Wing.R")
+
+```
+
+```{r plot Wing, include = TRUE, out.width="100%"}
+plot(gender_death_bar_plot) # Included command to display the plot
+
+```
+
+**Figure 2:** COVID-19 has a male bias in mortality. Males have higher mortality rate despite being sampled less. 1338 total deaths, 633 females and 705 males. 43279 females and 38376 males were sampled with confirmed cases of COVID-19. A potential reason for this bias could be the higher rate of high-risk behaviors and comorbidities in males (Singh *et al*., 2020). Studies suggest that low testosterone levels in males is associated with increased COVID‐19 mortality however there is a need for further research (Giagulli *et al*., 2021; Yassin *et al*., 2022).
+
+```{r import Madiyar}
+# Imported Madiyar's Script
+source("scripts/Madiyar.R")
+
+```
+
+```{r plot Madiyar, fig.height=9, fig.width=21, include = TRUE}
+plot(plot_F) # Included command to display the plot
+
+```
+
+**Figure 3.** The different symptoms associated with COVID-19 vary in prevalence among cases where individuals were and were not hospitalized. Sore throat symptoms were the least prevalent in both groups. Coughing symptoms were the most prevalent among those hospitalized both as an individual symptom and as a collective of symptoms, while the loss of taste and smell was the individual most prevalent symptom among those who weren't hospitalized, with headaches being most prevalent collectively along with other symptoms.
+
+# Conclusion
+
+Human demographics have been shown to influence the mortality of the various COVID-19 symptoms, with different symptoms such as headaches being more common among people. Consideration of different demographics and awareness of symptoms will be important in future global responses to worldwide diseases.
+
+# Reference List:
+
+Giagulli, V.A., Guastamacchia, E., Magrone, T., Jirillo, E., Lisco, G., De Pergola, G. and Triggiani, V., 2021. 'Worse progression of COVID‐19 in men: is testosterone a key factor?', *Andrology*, 9(1), pp. 53-64.
+
+Singh, S., Chowdhry, M., Chatterjee, A. and Khan, A., 2020. 'Gender-based disparities in COVID-19 patient outcomes: A propensity-matched analysis', *MedRxiv*.
+
+Yassin, A., Sabsigh, R., Al‐Zoubi, R.M., Aboumarzouk, O.M., Alwani, M., Nettleship, J. and Kelly, D., 2022. 'Testosterone and Covid‐19: an update', *Reviews in Medical Virology*, 33(1).

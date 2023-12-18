@@ -284,7 +284,8 @@ plot_Y <- ggplot(sym_count_Y, aes(fill = n_pos, y = symptom, x = hosp_Y))+
   scale_y_discrete(labels = Y_labs)+
   labs(x = "Number of cases that led to Hospitalizations",
        y = "Symptom",
-       title = "Occurrence of COVID-19 Symptoms leading to hospitalizations")+
+       title = "Occurrence of COVID-19 Symptoms leading to hospitalizations",
+       subtitle = "Coughing symptoms were present in the majority of hospitalizations")+
   theme_classic()
 
 plot_N <- ggplot(sym_count_N, aes(fill = n_pos, y = symptom, x = hosp_N))+
@@ -296,11 +297,11 @@ plot_N <- ggplot(sym_count_N, aes(fill = n_pos, y = symptom, x = hosp_N))+
        fill = "Included Symptoms")+
   theme_classic()
 
-plot_F <- plot_Y+plot_N
+plot_F <- (plot_Y+plot_N)
 
-ggsave("figures/madiyar_test.png",
+ggsave("figures/madiyar_symptom_barplot.png",
        plot = plot_F,
-       dpi = 900,
+       dpi = 300,
        width = 21,
        height = 9)
   
