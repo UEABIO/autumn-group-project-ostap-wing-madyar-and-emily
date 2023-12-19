@@ -60,6 +60,8 @@ sym_case <- sym_case %>%
 
 head(sym_case) #review
 
+##_____________________----
+
 ## Check the frequency of positive and negative cases----
 sym_case %>% 
   group_by(headache) %>% 
@@ -70,12 +72,16 @@ sym_case %>%
   mutate()
 #Difference in values for n and n_distinct indicates repeated observations
 
+##_____________________----
+
 ##Group "Unk" (unknown) and "NA" observations of headache----
 sym_case_grp <- sym_case %>% 
   mutate(headache = replace_na(headache, "Unk")) %>%
   mutate(headache = case_when(headache == "Unk" ~ "Unknown",
                               headache == "Yes" ~ "Yes",
                               headache == "No" ~ "No"))
+
+##_____________________----
 
 ##Recheck the frequency----
 sym_case_grp_n <- sym_case_grp %>% 
@@ -102,6 +108,8 @@ total <-sym_case_grp_n %>%
   summarise(total = sum(n))%>% #obtain value of the total number of positive cases
   pull() #extract the numerical value from the tibble
 
+##_____________________----
+
 ## Create Bar Plot----
 headache_bar <- sym_case_grp_n %>% #save the plot
   ggplot(aes(x=n_distinct, y=headache, fill = headache))+ #select variables
@@ -109,7 +117,7 @@ headache_bar <- sym_case_grp_n %>% #save the plot
   xlim(0, 35000)+
   labs(x = "Number of cases",
        y = "Symptom of headache experienced", #provide labels for both axes
-       title = "The symptom of headache is not indicative of a positive COVID-19 diagnosis",
+       title = "The symptom of headache does not indicate a positive COVID-19 diagnosis",
        subtitle = paste0("Sample Size: ", total," positive cases"))+ #combine the variable for total number of positive cases into the string
   geom_text(aes(label = scales::percent(freq)), hjust = -0.15)+ #display percentage
   scale_fill_manual(values=c("darkblue", #Apply colours to the corresponding categories to highlight the unconfirmed cases
@@ -118,8 +126,12 @@ headache_bar <- sym_case_grp_n %>% #save the plot
   theme_classic()+
   theme(legend.position = "none")
 
+##_____________________----
+
 ## Check colour scheme accessibility----
 colorBlindness::cvdPlot()
+
+##_____________________----
 
 ## Output----
 ggsave("figures/emily_headache_barplot.png", # Assign folder and name to the file
