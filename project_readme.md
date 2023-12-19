@@ -1,27 +1,43 @@
-# Autumn Assignment BIO 5023Y 
+# BIO-5023Y: Autumn Summative Group Assignment
 
-Summative group assignment from Wing, Emily, Ostap and Madiyar
-Project Readme explaining project:
+An outbreak situational report of COVID-19 by Ostap Romanchak, Madiyar Seidaly, Wing Lun Lim, and Emily Chiu. 
 
-## Project description
+### Project description:
+To understand the COVID-19 pandemic, we conducted exploratory data analysis and explored the following relationships:
 
-A group assignment to produce a outbreak situational report of COVID-19 that addresses any topics or trends that are deemed relevant to inform an audience of public health and medical responders. Each member is responsible for creation of a data figure. Data was presented via a csv-formatted COVID-19 linelist.
+* age and COVID-19 deaths,
+* gender and COVID-19 deaths, 
+* symptoms and hospitalisation, and
+* the symptom of headache and positive COVID-19 diagnosis.  
 
-The data is a fake version of a covid linelist a data format for collecting case numbers and information for epidemiology. This data was originally provided by Batra, Neale et al. (2021), The Epidemiologist R Handbook.
+The data was taken from Batra, Neale et al. (2021), The Epidemiologist R Handbook, https://zenodo.org/badge/doi/10.5281/zenodo.4752646.svg. 
 
-The project entails;
-Members are responsible for:
+The report and the figures were created using R on RStudio Cloud.
+  R Core Team (2023). _R: A Language and Environment for Statistical Computing_.
+  R Foundation for Statistical Computing, Vienna, Austria.
+  <https://www.R-project.org/>.
 
-Checking the dataset for errors or mistakes.
 
-Check that all columns are identified with the correct variable type.
+The following R packages were used:
 
-Conduct exploratory data analysis to identify topics or trends of importance.
-
-Work together to explore the data and agree on insights/topics for communication.
-
-Production of one summary figure per person - each figure should be appropriate for the intended audience. Figures may contain annotations or labels to aid explanation. Any requisite summary text to provide context or aid understanding should be included in the final Rmd report.
-
-Combine all figures with explanatory text into a short report compiled with Rmarkdown to be presented at a weekly situation update meeting attended by public health officials and medical responders.
-
-Creation of a personal reflection report of the project detailing each members responsibility and roles within the group.
+* **colorBlindness()**:
+  Ou J (2021). _colorBlindness: Safe Color Set for Color Blindness_. R package
+  version 0.1.9.
+* **ggplot2()**:
+  H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New
+  York, 2016.
+* **janitor()**:
+  Firke S (2023). _janitor: Simple Tools for Examining and Cleaning Dirty
+  Data_. R package version 2.2.0, https://sfirke.github.io/janitor/,
+  <https://github.com/sfirke/janitor>.
+* **patchwork()**:
+  Pedersen T (2023). _patchwork: The Composer of Plots_. R package version
+  1.1.3, https://github.com/thomasp85/patchwork,
+  <https://patchwork.data-imaginist.com>.
+* **tidyverse( )**:
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G,
+  Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller
+  K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C,
+  Woo K, Yutani H (2019). “Welcome to the tidyverse.” _Journal of Open Source
+  Software_, *4*(43), 1686. doi:10.21105/joss.01686
+  <https://doi.org/10.21105/joss.01686>.
