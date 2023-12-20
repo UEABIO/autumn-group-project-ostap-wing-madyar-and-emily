@@ -28,12 +28,12 @@ source("scripts/Ostap.R")
 
 ```
 
-```{r plot Ostap, include = TRUE, fig.width = 7, out.height="28%"}
+```{r plot Ostap, include = TRUE, fig.width = 7, out.height="30%"}
 plot(age_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 1.** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category. The assumed reason for the observations can be due to deteriorating immunity with the age.  
+**Figure 1.** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category.
 
 ```{r import Wing}
 # Imported Wing's script
@@ -41,12 +41,12 @@ source("scripts/Wing.R")
 
 ```
 
-```{r plot Wing, include = TRUE, fig.width = 7, out.height="26%"}
+```{r plot Wing, include = TRUE, fig.width = 7, out.height="27%"}
 plot(gender_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled. In the 1338 deaths, 633 were females and 705 were males. This might be caused by the higher rate of high-risk behaviors and comorbidities in males (Singh *et al*., 2020). An association of low testosterone levels in males with increased COVID-19 mortality is suggested, but further research is needed (Giagulli *et al*., 2021; Yassin *et al*., 2022).  
+**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled. 43,279 females and 38,376 males were sampled. In the 1338 deaths, 633 were females and 705 were males.
 
 ```{r import Madiyar}
 # Imported Madiyar's Script
@@ -54,7 +54,7 @@ source("scripts/Madiyar.R")
 
 ```
 
-```{r plot Madiyar, include = TRUE, fig.width=20, out.height="96%"}
+```{r plot Madiyar, include = TRUE, fig.width=20, fig.height = 7}
 plot(plot_F) # Included command to display the plot
 
 ```
@@ -67,7 +67,7 @@ source("scripts/Emily.R")
 
 ```
 
-```{r plot Emily, include = TRUE, fig.width = 7, out.height="24%"}
+```{r plot Emily, include = TRUE, fig.width = 7, out.height="28%"}
 plot(headache_bar) # Included command to display the plot
 
 ```
@@ -77,11 +77,3 @@ plot(headache_bar) # Included command to display the plot
 ## Conclusion
 
 Human demographics have been shown to influence the mortality of the various COVID-19 symptoms, with different symptoms such as headaches being more common among people. Consideration of different demographics and awareness of symptoms will be important in future global responses to worldwide diseases.
-
-## References:
-
-Giagulli, V.A., Guastamacchia, E., Magrone, T., Jirillo, E., Lisco, G., De Pergola, G. and Triggiani, V., 2021. 'Worse progression of COVID‐19 in men: is testosterone a key factor?', *Andrology*, 9(1), pp. 53-64.
-
-Singh, S., Chowdhry, M., Chatterjee, A. and Khan, A., 2020. 'Gender-based disparities in COVID-19 patient outcomes: A propensity-matched analysis', *MedRxiv*.
-
-Yassin, A., Sabsigh, R., Al‐Zoubi, R.M., Aboumarzouk, O.M., Alwani, M., Nettleship, J. and Kelly, D., 2022. 'Testosterone and Covid‐19: an update', *Reviews in Medical Virology*, 33(1).
