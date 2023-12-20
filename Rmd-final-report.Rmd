@@ -33,7 +33,7 @@ plot(age_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 1.** As the age increases the mortality rate rises, with the most significant deaths seen in the 80+ category.
+**Figure 1.** Mortality rate increases with age. Most deaths are seen in the age category 80+.
 
 ```{r import Wing}
 # Imported Wing's script
@@ -46,7 +46,7 @@ plot(gender_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled. 43,279 females and 38,376 males were sampled. In the 1338 deaths, 633 were females and 705 were males.
+**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled (38,376 males and 43,279 females). In the 1338 deaths, 633 were females and 705 were males.
 
 ```{r import Madiyar}
 # Imported Madiyar's Script
@@ -59,7 +59,7 @@ plot(plot_F) # Included command to display the plot
 
 ```
 
-**Figure 3.** The different symptoms associated with COVID-19 vary in prevalence among cases where individuals were and were not hospitalized. Sore throat was the least prevalent in both groups. Coughing was the most prevalent among those hospitalized both as an individual symptom and as a collective of symptoms, while the loss of taste and smell was the individual most prevalent symptom among those who weren't hospitalized, with headaches being most prevalent collectively along with other symptoms.
+**Figure 3.** The different symptoms associated with COVID-19 vary in prevalence among cases with and without hospitalizations. Sore throat was the least prevalent in both groups. Coughing was the most prevalent among those hospitalized both as an individual symptom and as a collective of symptoms. The loss of taste and smell was the individual most prevalent symptom among those who weren't hospitalized. Headache was the most prevalent collectively along with other symptoms.
 
 ```{r import Emily}
 # Imported Emily's Script
@@ -72,8 +72,8 @@ plot(headache_bar) # Included command to display the plot
 
 ```
 
-**Figure 4.** The symptom of headache does not indicate a positive COVID-19 diagnosis. Only 26% of the people with COVID-19 experienced a headache, 33% did not, and the status for the remaining cases could not be confirmed, thus suggesting there is no positive correlation.  
+**Figure 4.** The symptom of headache does not indicate a positive COVID-19 diagnosis. Only 26% of the people with COVID-19 experienced headache(s), 33% did not, and the status for the remainder could not be confirmed, thus suggesting there is no positive correlation.  
 
 ## Conclusion
 
-Human demographics have been shown to influence the mortality of the various COVID-19 symptoms, with different symptoms such as headaches being more common among people. Consideration of different demographics and awareness of symptoms will be important in future global responses to worldwide diseases.
+Human demographics have been shown to influence the mortality and the prevalence of various COVID-19 symptoms. Consideration of different demographics and awareness of symptoms will be important in future global responses to worldwide diseases.
