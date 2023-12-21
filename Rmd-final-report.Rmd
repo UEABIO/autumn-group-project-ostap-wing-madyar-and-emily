@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE, #hide R source codes
 
 ## Introduction
 
-Through COVID-19 model data of 82,101 cases between 27/12/2019 and 27/07/2019, we investigated the effect of age and gender on mortality and the severity of different symptoms. The 81,655 unique cases includes a total of s1,338 deaths.
+Through COVID-19 model data of 82,101 cases between 27/12/2019 and 27/07/2019, we investigated the effect of age and gender on mortality and the severity of different symptoms. The 81,655 unique cases includes a total of 1,338 deaths.
 
 ## Figures
 
@@ -48,7 +48,7 @@ plot(gender_death_bar_plot) # Included command to display the plot
 
 ```
 
-**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled (38,376 males and 43,279 females). In the 1338 deaths, 633 were females and 705 were males.
+**Figure 2.** COVID-19 has a male bias in mortality despite less males were sampled (38,376 males and 43,279 females). In the 1,338 deaths, 633 were females and 705 were males.
 
 ```{r import Madiyar}
 # Imported Madiyar's Script
@@ -61,7 +61,7 @@ plot(plot_F) # Included command to display the plot
 
 ```
 
-**Figure 3.** The different symptoms associated with COVID-19 vary in prevalence among cases where individuals were and were not hospitalized. Sore throat was the least prevalent in both groups. Coughing was the most prevalent among those hospitalized both as an individual symptom and as a collective of symptoms. The loss of taste and smell was the individual most prevalent symptom among those who weren't hospitalized. Headache was the most prevalent collectively along with other symptoms.
+**Figure 3.** The different symptoms associated with COVID-19 vary in prevalence among cases where individuals were and were not hospitalized. Coughing was the most prevalent among those hospitalized both as an individual symptom and as a collective of symptoms. The loss of taste and smell was the individual most prevalent symptom among those who weren't hospitalized. Headache was the most prevalent collectively along with other symptoms.
 
 ```{r import Emily}
 # Imported Emily's Script
