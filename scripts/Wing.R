@@ -97,7 +97,7 @@ gender_death_bar_plot <- gender_vs_covid_death %>%  # Saving my plot into object
             colour= "black") + 
   labs(x="Gender \n",  
        y = "\n Number of deaths", # Labeling yboth axes
-       title= "COVID-19 Deaths By Gender")+ # Insert plot title
+       title= "COVID-19 deaths by gender")+ # Insert plot title
   geom_text(data=gender_death_stats,   # Providing data for bar text
             aes(y=(n+50), # Shifting bar text to make it more visually accessible
                 x=case_gender,   # Stating location of bar text
@@ -106,7 +106,6 @@ gender_death_bar_plot <- gender_vs_covid_death %>%  # Saving my plot into object
                              "darkblue"))+
   coord_flip()+ # Flipping coordinate axis
   theme_classic() + # Setting preferred theme
-  theme(plot.title = element_text(hjust = 0.5))+ # Making title central
   theme(legend.position = "none") + # Removing legend
   scale_y_continuous(breaks = seq(0, 750, 50)) # Specify maximum range on flipped y-axis, in intervals of 50
 
