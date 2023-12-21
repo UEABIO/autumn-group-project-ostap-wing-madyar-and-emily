@@ -1,6 +1,6 @@
-# Script for cleaning----
-
-#___________________----
+# BIO-5023Y Autumn Group Project
+## Script for cleaning
+### Data first published in  Batra, Neale et al. (2021), The Epidemiologist R Handbook 
 
 # Loading packages ----
 library(tidyverse) # tidy data packages
@@ -8,14 +8,13 @@ library(janitor) # clean variable names
 
 # Importing the data ----
 covid_data_raw <- read_csv("data/covid_example_data.csv")
-#___________________----
 
+#___________________----
 
 # Exploring the data-----
 
 # Checking if variable types and names are appropriate and the number of variables
 glimpse (covid_data_raw)
-
 
 # Checking for NA and where they are
 summary(covid_data_raw)
