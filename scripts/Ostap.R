@@ -143,7 +143,7 @@ age_death_bar_plot <- age_vs_covid_death %>%      # Saving my plot
   labs(x="Age groups \n",       # Labeling x-axis and making an indent for clarity
        y = "\n Number of deaths per 40 000",      # Labeling y-axis and making an indent for clarity
        title= "The number of COVID19 deaths in the U.S. by the age", # Inserting a tittle
-       subtitle= "Study conducted between 27th December 2019 and 27th July 2021") +       # Inserting a sub-tittle
+       subtitle= "Samplle Size: 39676 cases") +       # Inserting a sub-tittle
   geom_text(data=age_death_stats,   # Providing data for bar text
             aes(y=(n+35),       # Shifting bar text to make is visually accessible
                 x=age_range,        # Stating where I like my bar text to be
