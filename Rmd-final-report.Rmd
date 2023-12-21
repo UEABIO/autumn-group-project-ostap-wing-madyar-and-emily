@@ -8,9 +8,11 @@ output: pdf_document
 ```{r setup, include = FALSE}
 
 # GLOBAL KNITR OPTIONS----
-# Global options for the knitted document. Warning and Messages hidden, code hidden, outputs hidden and will be shown individually.
-
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, messages = FALSE, include = FALSE, fig.align='center')
+knitr::opts_chunk$set(echo = FALSE, #hide R source codes
+                      warning = FALSE, #to not print warnings from R
+                      messages = FALSE, #to not print messsges from R
+                      include = FALSE, #hide outputs
+                      fig.align='center') #align figures at the centre
 
 # ____________________----
 
