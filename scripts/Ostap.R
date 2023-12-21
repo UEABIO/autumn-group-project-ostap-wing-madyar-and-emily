@@ -79,7 +79,7 @@ covid_data %>%
 
 #___________________----
 
-# Narrowing down data frame with the interested variables only----
+# Narrowing down the data frame with the interested variables only----
 age_vs_covid_death <- covid_data %>%
   select(pid, case_age, died_covid) %>% # select variables of interest
   filter(died_covid == "Yes") # include only "Yes" values in the covid death variable
@@ -95,7 +95,7 @@ ggplot(data = age_vs_covid_death, # Feeding data
 
 #___________________----
 
-# Making age categories for deaths and saving into new variable----
+# Creating and saving age categories for deaths into a new variable----
 # The previous bar plot suggests grouping cases of above 80 years old as a single age category for a clearer message
 age_vs_covid_death <- age_vs_covid_death %>% # Saving the data in original object
   mutate(age_range = case_when(case_age <= 29 ~ "19-29", # Adding a variable to group deaths by age groups
