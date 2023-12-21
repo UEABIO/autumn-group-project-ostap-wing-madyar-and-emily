@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE, #hide R source codes
 
 ## Introduction
 
-Through COVID-19 model data of 82,101 cases between 27/12/2019 and 27/07/2019, we investigated the effect of age and gender on mortality and the severity of different symptoms. The 81,655 unique cases includes a total of 1,338 deaths.
+Through COVID-19 model data of 82,101 cases between 27/12/2019 and 27/07/2019 based in the U.S., we investigated the effect of age and gender on mortality and the severity of different symptoms. The 81,655 unique cases includes a total of 1,338 deaths.
 
 ## Figures
 
