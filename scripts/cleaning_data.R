@@ -6,21 +6,20 @@
 library(tidyverse) # tidy data packages
 library(janitor) # clean variable names
 
-# Importing data ----
+# Importing the data ----
 covid_data_raw <- read_csv("data/covid_example_data.csv")
 #___________________----
 
 
-# Exploring data to clean it -----
+# Exploring the data-----
 
-# Checking if variable types and names are appropriate, also how many categories
+# Checking if variable types and names are appropriate and the number of variables
 glimpse (covid_data_raw)
 
 
 # Checking for NA and where they are
 summary(covid_data_raw)
-
-# Previous function doesn't show location of NAs in some variables. Therefore need to be investigated separately
+#The location of NAs are not shown in some variables. Separate investigation is needed.
 
 # Cleaning all variable names
 covid_data <- janitor::clean_names(covid_data_raw)
@@ -28,11 +27,10 @@ covid_data <- janitor::clean_names(covid_data_raw)
 #Checking variable names
 glimpse (covid_data)
 
-# Checking for duplicate rows in the data
+# Checking for duplicate rows
 covid_data %>% 
-  duplicated() %>% # produces a list of TRUE/FALSE statements for duplicated or not
+  duplicated() %>% # produces a list of TRUE/FALSE statements for duplicates
   sum() # sums all duplicates if present
-
 
 # Removing duplicates
 covid_data <- unique(covid_data) # Only includes unique individuals, no duplicates
