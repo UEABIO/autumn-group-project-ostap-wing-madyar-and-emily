@@ -123,8 +123,8 @@ headache_bar <- sym_case_grp_n %>% #save the plot
   scale_fill_manual(values=c("darkblue", #Apply colours to the corresponding categories
                              "deepskyblue4",
                              "deepskyblue"))+
-  theme_classic()+
-  theme(legend.position = "none")
+  theme_classic()+ #specify theme
+  theme(legend.position = "none") #remove any legend
 
 ##_____________________----
 
